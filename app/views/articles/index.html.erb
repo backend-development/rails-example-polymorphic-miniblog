@@ -1,7 +1,8 @@
 <h1>My Mini Blog</h1>
 
 <%= link_to 'New Article', new_article_path %>
+<% Attachment.all_subclasses.each do |subclass| %>
+  |  <%= link_to "New Article with #{subclass}", new_article_path( :attachment => subclass ) %>
+<% end %>
 
 <%= render @articles %>
-
-

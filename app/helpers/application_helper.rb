@@ -1,6 +1,7 @@
 module ApplicationHelper
 
-  def controller_for( o )
-    o.class.name.underscore + "s" 
+  def fields_partial_for( o )
+    "#{o.class.name.underscore}s/fields"
   end
+
 end

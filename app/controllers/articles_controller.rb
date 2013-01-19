@@ -4,7 +4,6 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.order("created_at DESC").all
 
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @articles }
@@ -27,9 +26,8 @@ class ArticlesController < ApplicationController
   def new
     @article = Article.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @article }
+    if( params[:attachment] )
+      @article.attachment = Attachment.subclass( params[:attachment] ).new
     end
   end
 
@@ -41,7 +39,16 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
+    if  params[:article][:attachment_attributes] and params[:article][:attachment_type]  
+      c = Attachment.subclass( params[:article][:attachment_type] )
+      @attachment = c.create!( params[:article][:attachment_attributes] )
+      params[:article].delete( :attachment_attributes )
+      params[:article].delete( :attachment_type )
+    end
+
     @article = Article.new(params[:article])
+
+    @article.attachment = @attachment unless @attachment.nil?
 
     respond_to do |format|
       if @article.save

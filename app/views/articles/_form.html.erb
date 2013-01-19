@@ -16,14 +16,15 @@
     <%= f.text_field :title %>
   </div>
 
-  <% if @article.attachment %>
-    <%= f.fields_for :attachment do |builder| %>
+  <div class="field">
+    <%= f.label :text %><br />
+    <%= f.text_area :text %>
+  </div>
 
-      <div class="field">
-        <%= builder.label :url %><br />
-        <%= builder.text_field :url %>
-      </div>
-      
+  <% if @article.attachment %>
+    <%= f.hidden_field :attachment_type %>
+    <%= f.fields_for :attachment do |builder| %>
+      <%= render :partial => fields_partial_for( @article.attachment ), :locals => { :f => builder }  %>
     <% end %>
   <% end %>
   <div class="actions">
@@ -31,10 +32,3 @@
   </div>
 <% end %>
 
-<% if @article.attachment %>
-  <p><kbd><%= @article.attachment_type %> / <%= @article.attachment_id %></kbd></p>
-  <%= link_to 'Delete this attachment', @article.attachment, method: :delete, data: { confirm: 'Are you sure?' } %>  |
-  <%= link_to 'Edit this attachment', { :action => :edit, :id => @article.attachment, :controller => controller_for( @article.attachment ) } %>
-  <%= render @article.attachment %>
-<% else %>
-<% end %>

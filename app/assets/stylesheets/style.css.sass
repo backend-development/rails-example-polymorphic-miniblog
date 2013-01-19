@@ -1,0 +1,24 @@
+@mixin box-shadow($shadows...)
+  -webkit-box-shadow: $shadows
+  -moz-box-shadow: $shadows
+  box-shadow: $shadows
+
+body, input
+  font-family: 'Sorts Mill Goudy', serif
+
+body
+  margin: 0
+  background-image: image-url('Color_Rain_by_wronex.jpg')
+
+article 
+  background-color: white
+  max-width: 960px
+  padding: 20px
+  margin: 0 auto
+  @include box-shadow(1px 1px 11px rgba(50, 50, 50, 0.75))
+
+a:link, a:visited, a:active
+  text-decoration: none
+
+a:link:hover, a:visited:hover, a:active:hover
+  text-decoration: underline

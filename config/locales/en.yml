@@ -2,4 +2,12 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      quote_attechment: Quote
+    attributes:
+      article:
+        title: "Title of the Article"
+        text: "Text of the Article"
+      quote_attachment:
+        text: "Text of the Quote"

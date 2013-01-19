@@ -1,11 +1,11 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
 one:
-  text: MyText
-  author: MyString
-  url: MyString
+  id: 1
+  text: "The three chief virtues of a programmer are: Laziness, Impatience and Hubris."
+  author: "Larry Wall"
+  url: "http://en.wikiquote.org/wiki/Larry_wall#Other"
 
 two:
-  text: MyText
-  author: MyString
-  url: MyString
+  id: 2
+  text: "Let's go eat"
+  author: "Brigitte Jellinek"
+  url: 

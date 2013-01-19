@@ -1,3 +1,6 @@
 <h1><%= link_to article.title, article %></h1>
-<p>posted on <%=l article.created_at, :format => :short %>
-<%= render article.attachment %>
+<p>posted on <%=l article.created_at, :format => :short %></p>
+<p><%= article.text %></p>
+<% if article.attachment %>
+  <%= render article.attachment %>
+<% end %>

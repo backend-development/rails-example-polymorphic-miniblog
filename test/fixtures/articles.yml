@@ -1,0 +1,15 @@
+one:
+  id: 1
+  title: my empty article
+
+two:
+  id: 2
+  title: my favorite webpage is..
+  attachment_type: LinkAttachment
+  attachment_id: 1
+
+three:
+  id: 3
+  title: my favorite quote is
+  attachment_type: QuoteAttachment
+  attachment_id: 1

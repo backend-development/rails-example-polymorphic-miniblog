@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130119102425) do
+ActiveRecord::Schema.define(:version => 20130119173715) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20130119102425) do
     t.datetime "updated_at",      :null => false
     t.integer  "attachment_id"
     t.string   "attachment_type"
+    t.text     "text"
   end
 
   add_index "articles", ["attachment_type", "attachment_id"], :name => "index_articles_on_attachment_type_and_attachment_id"
