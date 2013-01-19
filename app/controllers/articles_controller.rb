@@ -58,9 +58,8 @@ class ArticlesController < ApplicationController
   # PUT /articles/1.json
   def update
     @article = Article.find(params[:id])
-
     respond_to do |format|
-      if @article.update_attributes(params[:article])
+      if  @article.update_attributes(params[:article])
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }
         format.json { head :no_content }
       else
