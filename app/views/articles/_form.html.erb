@@ -19,3 +19,11 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<% if @article.attachment %>
+  <p><kbd><%= @article.attachment_type %> / <%= @article.attachment_id %></kbd></p>
+  <%= link_to 'Delete this attachment', @article.attachment, method: :delete, data: { confirm: 'Are you sure?' } %>  |
+  <%= link_to 'Edit this attachment', { :action => :edit, :id => @article.attachment, :controller => controller_for( @article.attachment ) } %>
+  <%= render @article.attachment %>
+<% else %>
+<% end %>

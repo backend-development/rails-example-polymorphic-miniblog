@@ -1,0 +1,5 @@
+<%= render :partial => "quote_attachment", :locals => {  :quote_attachment => @quote_attachment } %>
+
+<%= link_to 'Edit', edit_quote_attachment_path(@quote_attachment) %> |
+<%= link_to 'Destroy', @quote_attachment, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back', quote_attachments_path %>

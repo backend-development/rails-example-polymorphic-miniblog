@@ -1,0 +1,2 @@
+module QuoteAttachmentsHelper
+end

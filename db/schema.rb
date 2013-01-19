@@ -11,10 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130119090943) do
+ActiveRecord::Schema.define(:version => 20130119102425) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.integer  "attachment_id"
+    t.string   "attachment_type"
+  end
+
+  add_index "articles", ["attachment_type", "attachment_id"], :name => "index_articles_on_attachment_type_and_attachment_id"
+
+  create_table "link_attachments", :force => true do |t|
+    t.string   "url"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "quote_attachments", :force => true do |t|
+    t.text     "text"
+    t.string   "author"
+    t.string   "url"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
